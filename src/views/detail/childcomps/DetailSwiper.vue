@@ -1,24 +1,15 @@
 <template>
-  <div class="wrapper">
-    <swiper :options="swiperOptions">
-      <swiper-slide v-for="(item, index) of banners" :key="index">
-        <a :href="item.link"
-          ><img class="swiper-img" :src="item.image" @load="imgLoad"
-        /></a>
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
-  </div>
+  <swiper :options="swiperOptions" class="detailSwiper">
+    <swiper-slide v-for="(item, index) of topImage" :key="index">
+      <img class="swiper-img" :src="item" />
+    </swiper-slide>
+    <div class="swiper-pagination" slot="pagination"></div>
+  </swiper>
 </template>
 
 <script>
 export default {
-  name: "HomeSwiper",
-  methods: {
-    imgLoad() {
-      this.$emit("swiperimgLoad");
-    },
-  },
+  name: "DetailSwiper",
   data() {
     return {
       swiperOptions: {
@@ -36,7 +27,7 @@ export default {
     };
   },
   props: {
-    banners: {
+    topImage: {
       type: Array,
       default() {
         return [];
@@ -47,11 +38,11 @@ export default {
 </script>
 
 <style >
-.swiper-img {
-  width: 100%;
+.detailSwiper {
+  height: 300px;
+  overflow: hidden;
 }
 .swiper-pagination-bullet-active {
   background: var(--color-tint);
 }
 </style>
-

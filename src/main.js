@@ -8,6 +8,7 @@ Vue.use(VueAwesomeSwiper);
 import Swiper2, { Navigation, Pagination, EffectFade, Autoplay } from 'swiper'
 Swiper2.use([Navigation, Pagination, EffectFade, Autoplay])
 
+Vue.prototype.$bus = new Vue()
 
 Vue.config.productionTip = false
 
