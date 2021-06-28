@@ -25,6 +25,7 @@ export class Goods {
         this.title = itemInfo.title
         this.price = itemInfo.price
         this.oldPrice = itemInfo.oldPrice
+        this.desc = itemInfo.desc
         this.discountDesc = itemInfo.discountDesc
         this.discountBgColor = itemInfo.discountBgColor
         this.columns = columns

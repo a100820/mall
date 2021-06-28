@@ -48,8 +48,6 @@ import TabControl from "components/cotent/tabControl/TabControl";
 import GoodsList from "components/cotent/goods/GoodsList";
 import BackTop from "components/cotent/backTop/BackTop/";
 
-import { debounce } from "common/utils.js";
-
 import { imageListenerMix } from "common/mixin.js";
 
 import { getHomeMutidata, getHomeGoods } from "network/home.js";

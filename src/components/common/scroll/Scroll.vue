@@ -8,6 +8,8 @@
 
 <script>
 import BetterScroll from "better-scroll";
+import ObserveDOM from "@better-scroll/observe-dom";
+BetterScroll.use(ObserveDOM);
 // import ObserveImage from "@better-scroll/observe-image";
 // BetterScroll.use(ObserveImage);
 

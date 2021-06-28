@@ -23,7 +23,7 @@
       ></detail-comment-info>
       <goods-list ref="recommend" :goods="recommend"></goods-list>
     </scroll>
-    <detail-tab-bar />
+    <detail-tab-bar @addCart="addToCart" />
     <back-top @click.native="backClick" v-show="IsShowbacktop" />
   </div>
 </template>
@@ -44,6 +44,8 @@ import BackTop from "components/cotent/backTop/BackTop/";
 import Scroll from "components/common/scroll/Scroll";
 
 import { imageListenerMix } from "common/mixin.js";
+//映射Action
+import { mapActions } from "vuex";
 
 import {
   getDetail,
@@ -160,6 +162,26 @@ export default {
         }
       }
     },
+
+    ...mapActions(["addCart"]),
+    addToCart() {
+      //1.获取购物车需要展示的信息
+      const product = {};
+      product.img = this.topImage[0];
+      product.title = this.goods.title;
+      product.desc = this.goods.desc;
+      product.price = this.goods.lowNowPrice;
+      product.iid = this.iid;
+
+      //2.将商品添加到购物车或者商品数量+1
+      this.addCart(product).then((res) => {
+        // console.log(res);
+        this.$toast.show(res, 2000);
+        // this.$store.dispatch("addCart", product).then((res) => {
+        //   console.log(res);
+      });
+      // console.log(this.$store);
+    },
   },
 };
 </script>
@@ -178,7 +200,9 @@ export default {
   right: 0;
   /* bottom: 0; */
   bottom: 49px;
+  overflow: hidden;
 }
+
 .detail-nav-bar {
   position: relative;
   z-index: 9;

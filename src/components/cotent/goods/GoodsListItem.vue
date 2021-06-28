@@ -1,7 +1,7 @@
 <template>
   <div class="goods-item">
     <div class="goods-img">
-      <img :src="showImage" alt="" @load="imageLoad" @click="itemClick" />
+      <img v-lazy="showImage" alt="" @load="imageLoad" @click="itemClick" />
     </div>
 
     <div class="goods-info">
@@ -36,7 +36,9 @@ export default {
   },
   computed: {
     showImage() {
-      return this.goodsitem.image || this.goodsitem.show.img;
+      return (
+        this.goodsitem.image || this.goodsitem.img || this.goodsitem.show.img
+      );
     },
   },
 };
@@ -50,9 +52,6 @@ export default {
   padding-bottom: 40px;
   position: relative;
 }
-/* .goods-img {
-  
-} */
 
 .goods-item img {
   width: 90%;

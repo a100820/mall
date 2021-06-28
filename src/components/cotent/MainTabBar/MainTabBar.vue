@@ -15,6 +15,13 @@
       </template>
       <template v-slot:item-text><div>分类</div></template>
     </tab-bei-item>
+    <!-- 可以通过activeColor="blue"修改点击颜色为blue -->
+    <tab-bei-item path="/shopcar">
+      <template v-slot:item-icon>
+        <i class="iconfont">&#xe699;</i>
+      </template>
+      <template v-slot:item-text><div>购物车</div></template></tab-bei-item
+    >
 
     <tab-bei-item path="/profile">
       <template v-slot:item-icon>
@@ -23,12 +30,6 @@
       </template>
       <template v-slot:item-text><div>我的</div></template>
     </tab-bei-item>
-    <tab-bei-item path="/shopcar" activeColor="blue">
-      <template v-slot:item-icon>
-        <i class="iconfont">&#xe699;</i>
-      </template>
-      <template v-slot:item-text><div>购物车</div></template></tab-bei-item
-    >
   </tab-bar>
 </template>
 
